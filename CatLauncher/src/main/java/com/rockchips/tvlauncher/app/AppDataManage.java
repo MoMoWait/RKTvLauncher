@@ -8,10 +8,14 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 
+import com.rockchips.tvlauncher.bean.AppItem;
+import com.rockchips.tvlauncher.data.ConstData;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 
 public class AppDataManage {
 
@@ -60,6 +64,35 @@ public class AppDataManage {
             if (!localAppBean.getPackageName().equals("com.jacky.launcher")) {
                 localArrayList.add(localAppBean);
             }
+        }
+        return localArrayList;
+    }
+
+    public ArrayList<AppItem> getLaunchAppItems(boolean isHot) {
+        PackageManager localPackageManager = mContext.getPackageManager();
+        Intent localIntent = new Intent("android.intent.action.MAIN");
+        localIntent.addCategory("android.intent.category.LAUNCHER");
+        List<ResolveInfo> localList = localPackageManager.queryIntentActivities(localIntent, 0);
+        ArrayList<AppItem> localArrayList = null;
+        Iterator<ResolveInfo> localIterator = null;
+        localArrayList = new ArrayList<>();
+        Random random = new Random();
+        if (localList.size() != 0) {
+            localIterator = localList.iterator();
+        }
+        while (true) {
+            if (!localIterator.hasNext())
+                break;
+            ResolveInfo localResolveInfo =  localIterator.next();
+            if(isHot && !HOT_APPS.contains(localResolveInfo.activityInfo.packageName))
+                continue;
+            if(FILTER_APPS.contains(localResolveInfo.activityInfo.packageName))
+                continue;
+            AppItem appItem = new AppItem();
+            appItem.setAppIcon(localResolveInfo.activityInfo.loadIcon(localPackageManager));
+            appItem.setAppName(localResolveInfo.activityInfo.loadLabel(localPackageManager).toString());
+            appItem.setBackColor(ConstData.APP_ITEM_BACK_COLORS[random.nextInt(ConstData.APP_ITEM_BACK_COLORS.length)]);
+            localArrayList.add(appItem);
         }
         return localArrayList;
     }

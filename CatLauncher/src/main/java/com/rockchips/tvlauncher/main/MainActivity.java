@@ -28,7 +28,10 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.rockchips.tvlauncher.R;
 import com.rockchips.tvlauncher.app.AppCardPresenter;
 import com.rockchips.tvlauncher.app.AppDataManage;
+import com.rockchips.tvlauncher.app.AppItemPresenter;
 import com.rockchips.tvlauncher.app.AppModel;
+import com.rockchips.tvlauncher.app.TestPresenter;
+import com.rockchips.tvlauncher.bean.AppItem;
 import com.rockchips.tvlauncher.bean.FunctionItem;
 import com.rockchips.tvlauncher.data.ConstData;
 import com.rockchips.tvlauncher.detail.MediaDetailsActivity;
@@ -37,6 +40,7 @@ import com.rockchips.tvlauncher.function.FunctionCardPresenter;
 import com.rockchips.tvlauncher.function.FunctionModel;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends Activity {
@@ -100,6 +104,7 @@ public class MainActivity extends Activity {
         //addVideoRow();
         addHotAppRow();
         addAppRow();
+        addTestRow();
         addFunctionRow();
         mBrowseFragment.setAdapter(rowsAdapter);
         mBrowseFragment.setOnItemViewClickedListener(new OnItemViewClickedListener() {
@@ -194,13 +199,13 @@ public class MainActivity extends Activity {
     private void addAppRow() {
         String headerName;
         ArrayObjectAdapter listRowAdapter;
-        ArrayList<AppModel> appDataList = new AppDataManage(mContext).getLaunchAppList(false);
+        ArrayList<AppItem> appDataList = new AppDataManage(mContext).getLaunchAppItems(false);
         if(appDataList == null || appDataList.size() == 0)
             return;
         int appCount = appDataList.size();
         int appRowCount = (appCount + ConstData.APP_ROW_COUNT - 1) / ConstData.APP_ROW_COUNT;
         for(int row = 0; row < appRowCount - 1; ++row){
-            listRowAdapter = new ArrayObjectAdapter(new AppCardPresenter(false));
+            listRowAdapter = new ArrayObjectAdapter(new AppItemPresenter(false));
             for(int col = 0; col < ConstData.APP_ROW_COUNT; ++col){
                 listRowAdapter.add(appDataList.get(row * ConstData.APP_ROW_COUNT + col));
             }
@@ -213,7 +218,7 @@ public class MainActivity extends Activity {
         }
         int lastRowCount = appCount % ConstData.APP_ROW_COUNT;
         if(lastRowCount > 0){
-            listRowAdapter = new ArrayObjectAdapter(new AppCardPresenter(false));
+            listRowAdapter = new ArrayObjectAdapter(new AppItemPresenter(false));
             for(int col = 0; col < lastRowCount; ++col){
                 listRowAdapter.add(appDataList.get(appCount - lastRowCount + col));
             }
@@ -236,4 +241,16 @@ public class MainActivity extends Activity {
         HeaderItem header = new HeaderItem(0, null);
         rowsAdapter.add(new ListRow(header, listRowAdapter));
     }
+
+    private void addTestRow(){
+        ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(new TestPresenter());
+        List<String> items = Arrays.asList("Hello", "World", "Good" ,"Morning");
+        int cardCount = items.size();
+        for (int i = 0; i < cardCount; i++) {
+            listRowAdapter.add(items.get(i));
+        }
+        HeaderItem header = new HeaderItem(0, "测试");
+        rowsAdapter.add(new ListRow(header, listRowAdapter));
+    }
+
 }

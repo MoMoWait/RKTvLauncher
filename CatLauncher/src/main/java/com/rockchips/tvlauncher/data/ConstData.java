@@ -1,5 +1,7 @@
 package com.rockchips.tvlauncher.data;
 
+import android.graphics.Color;
+
 import momo.cn.edu.fjnu.androidutils.utils.SizeUtils;
 
 /**
@@ -20,4 +22,7 @@ public class ConstData {
         int WIFI = 1;
         int ETHERNET = 2;
     }
+    public static final int[] APP_ITEM_BACK_COLORS = { Color.parseColor("#f4ea2a"),
+    Color.parseColor("#1afa29"), Color.parseColor("#e26a00"), Color.parseColor("#0459d0"),
+    Color.parseColor("#26eefd"), Color.parseColor("#f92812")};
 }
