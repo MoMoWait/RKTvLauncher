@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 public class AppItem {
     private String appName;
     private String prvPath;
+    private String pkgName;
+    private String activityName;
     private int backColor;
     private Drawable appIcon;
     public String getAppName() {
@@ -43,13 +45,20 @@ public class AppItem {
         this.appIcon = appIcon;
     }
 
-    @Override
-    public String toString() {
-        return "AppItem{" +
-                "appName='" + appName + '\'' +
-                ", prvPath='" + prvPath + '\'' +
-                ", backColor=" + backColor +
-                ", appIcon=" + appIcon +
-                '}';
+    public String getPkgName() {
+        return pkgName;
     }
+
+    public void setPkgName(String pkgName) {
+        this.pkgName = pkgName;
+    }
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
 }

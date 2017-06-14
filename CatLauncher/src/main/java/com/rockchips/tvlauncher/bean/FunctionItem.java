@@ -7,6 +7,8 @@ package com.rockchips.tvlauncher.bean;
 public class FunctionItem {
     private int imgResID;
     private String title;
+    private String pkgName;
+    private String activityName;
 
     public int getImgResID() {
         return imgResID;
@@ -23,4 +25,21 @@ public class FunctionItem {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public String getPkgName() {
+        return pkgName;
+    }
+
+    public void setPkgName(String pkgName) {
+        this.pkgName = pkgName;
+    }
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
 }

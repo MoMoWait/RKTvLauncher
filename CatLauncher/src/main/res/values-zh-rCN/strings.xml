@@ -5,4 +5,8 @@
     <string name="app_header_video_name">直播</string>
     <string name="app_header_app_name">应用</string>
     <string name="app_header_function_name">功能</string>
+    <string name="app_uninstall">应用卸载</string>
+    <string name="uninstall">卸载</string>
+    <string name="settings">设置</string>
+    <string name="app_not_installed">应用程序未安装</string>
 </resources>

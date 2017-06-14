@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.rockchips.tvlauncher.R;
+import com.rockchips.tvlauncher.bean.AppItem;
 import com.rockchips.tvlauncher.data.ConstData;
 
 import momo.cn.edu.fjnu.androidutils.utils.SizeUtils;
@@ -60,10 +61,10 @@ public class AppCardPresenter extends Presenter {
     public void onBindViewHolder(ViewHolder viewHolder, Object item) {
         ImageCardView cardView = (ImageCardView) viewHolder.view;
         cardView.setMainImageDimensions(mCardWidth, mCardHeight);
-        AppModel appBean = (AppModel) item;
+        AppItem appBean = (AppItem) item;
         cardView.setMainImageScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        cardView.getMainImageView().setImageDrawable(appBean.getIcon());
-        cardView.setTitleText(appBean.getName());
+        cardView.getMainImageView().setImageDrawable(appBean.getAppIcon());
+        cardView.setTitleText(appBean.getAppName());
     }
 
     @Override

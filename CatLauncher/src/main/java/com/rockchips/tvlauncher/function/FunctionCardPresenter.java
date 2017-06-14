@@ -53,4 +53,5 @@ public class FunctionCardPresenter extends Presenter {
     public void onUnbindViewHolder(ViewHolder viewHolder) {
 
     }
+
 }

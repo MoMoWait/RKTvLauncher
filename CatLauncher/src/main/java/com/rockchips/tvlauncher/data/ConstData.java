@@ -25,4 +25,6 @@ public class ConstData {
     public static final int[] APP_ITEM_BACK_COLORS = { Color.parseColor("#f4ea2a"),
     Color.parseColor("#1afa29"), Color.parseColor("#e26a00"), Color.parseColor("#0459d0"),
     Color.parseColor("#26eefd"), Color.parseColor("#f92812")};
+    public static final String SETTINGS_PACKAGE = "com.android.tv.settings";
+    public static final String SETTINGS_ACTIVITY = "com.android.tv.settings.MainSettings";
 }

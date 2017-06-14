@@ -80,6 +80,8 @@ public class AppDataManage {
         if (localList.size() != 0) {
             localIterator = localList.iterator();
         }
+        if(localIterator == null)
+            return localArrayList;
         while (true) {
             if (!localIterator.hasNext())
                 break;
@@ -92,6 +94,8 @@ public class AppDataManage {
             appItem.setAppIcon(localResolveInfo.activityInfo.loadIcon(localPackageManager));
             appItem.setAppName(localResolveInfo.activityInfo.loadLabel(localPackageManager).toString());
             appItem.setBackColor(ConstData.APP_ITEM_BACK_COLORS[random.nextInt(ConstData.APP_ITEM_BACK_COLORS.length)]);
+            appItem.setPkgName(localResolveInfo.activityInfo.packageName);
+            appItem.setActivityName(localResolveInfo.activityInfo.name);
             localArrayList.add(appItem);
         }
         return localArrayList;

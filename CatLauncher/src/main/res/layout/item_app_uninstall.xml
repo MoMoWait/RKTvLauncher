@@ -19,7 +19,6 @@
         android:layout_margin="5dp"
         android:layout_toRightOf="@id/item_app_uninstall_iv"
         android:gravity="center"
-        android:text="name"
         android:textColor="@color/white"
         android:textSize="30sp"/>
 
@@ -29,7 +28,7 @@
         android:layout_alignParentRight="true"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="卸载"
+        android:text="@string/app_uninstall"
         android:textColor="@color/white"
         android:textSize="30sp"/>
 

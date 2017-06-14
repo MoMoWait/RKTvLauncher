@@ -37,10 +37,7 @@ public class TestPresenter extends Presenter {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Object item) {
        TextView textView = (TextView) viewHolder.view;
-        ViewGroup pView = (ViewGroup) textView.getParent();
-        ShadowOverlayContainer container = (ShadowOverlayContainer)pView;
-        pView.setBackgroundColor(Color.TRANSPARENT);
-        Log.i(TAG, "onBindViewHolder->" + container.getShadowType());
+        textView.setBackgroundColor(Color.TRANSPARENT);
         textView.setText(item.toString());
 
     }

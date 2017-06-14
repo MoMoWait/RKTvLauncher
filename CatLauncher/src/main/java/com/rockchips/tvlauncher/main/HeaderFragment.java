@@ -15,14 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.rockchips.tvlauncher.R;
 import com.rockchips.tvlauncher.data.ConstData;
 import com.rockchips.tvlauncher.util.NetWorkUtils;
-
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;

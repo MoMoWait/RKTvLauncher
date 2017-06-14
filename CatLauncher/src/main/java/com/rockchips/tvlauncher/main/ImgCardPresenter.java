@@ -5,8 +5,6 @@ import android.graphics.drawable.Drawable;
 import android.support.v17.leanback.widget.ImageCardView;
 import android.support.v17.leanback.widget.Presenter;
 import android.view.ViewGroup;
-
-import com.bumptech.glide.Glide;
 import com.rockchips.tvlauncher.R;
 import com.rockchips.tvlauncher.detail.MediaModel;
 
@@ -51,10 +49,6 @@ public class ImgCardPresenter extends Presenter {
             MediaModel mediaModel = (MediaModel) item;
             cardView.setTitleText(mediaModel.getTitle());
             cardView.setContentText(mediaModel.getContent());
-            Glide.with(cardView.getMainImageView().getContext())
-                    .load(mediaModel.getImageUrl())
-                    .crossFade()
-                    .into(cardView.getMainImageView());
         }
     }
 

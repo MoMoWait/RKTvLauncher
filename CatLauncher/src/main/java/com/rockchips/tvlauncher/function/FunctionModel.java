@@ -7,6 +7,7 @@ import android.content.Intent;
 import com.rockchips.tvlauncher.R;
 import com.rockchips.tvlauncher.app.AppUninstall;
 import com.rockchips.tvlauncher.bean.FunctionItem;
+import com.rockchips.tvlauncher.data.ConstData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,12 +67,16 @@ public class FunctionModel {
     public static List<FunctionItem> getFunctionItems(Context context) {
         List<FunctionItem> functionItems = new ArrayList<>();
         FunctionItem uninstallItem = new FunctionItem();
-        uninstallItem.setTitle("卸载");
+        uninstallItem.setTitle(context.getString(R.string.uninstall));
         uninstallItem.setImgResID(R.drawable.ic_app_uninstall);
+        uninstallItem.setPkgName(context.getPackageName());
+        uninstallItem.setActivityName(AppUninstall.class.getName());
         functionItems.add(uninstallItem);
         FunctionItem settingsItem = new FunctionItem();
-        settingsItem.setTitle("设置");
+        settingsItem.setTitle(context.getString(R.string.settings));
         settingsItem.setImgResID(R.drawable.ic_settings_settings);
+        settingsItem.setPkgName(ConstData.SETTINGS_PACKAGE);
+        settingsItem.setActivityName(ConstData.SETTINGS_ACTIVITY);
         functionItems.add(settingsItem);
         return functionItems;
     }

@@ -4,4 +4,8 @@
     <string name="app_header_video_name">Live</string>
     <string name="app_header_app_name">App</string>
     <string name="app_header_function_name">Function</string>
+    <string name="app_uninstall">App uninstall</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="settings">Settings</string>
+    <string name="app_not_installed">Application not installed</string>
 </resources>

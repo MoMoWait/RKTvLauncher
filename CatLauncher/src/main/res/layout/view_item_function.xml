@@ -7,7 +7,8 @@
         android:id="@+id/img_icon"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:background="@drawable/function_item_background"/>
     <TextView
         android:id="@+id/text_title"
         android:layout_width="150dp"
